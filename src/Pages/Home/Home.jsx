@@ -1,30 +1,30 @@
 import { getTopRate } from 'components/api/movieService';
-import Badge from 'react-bootstrap/Badge';
-import ListGroup from 'react-bootstrap/ListGroup';
+import { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 const Home = () => {
+  const [topRatePosts, setTopRatePosts] = useState([]);
   const topRateData = async () => {
-    const data = await getTopRate();
-    console.log(data);
+    const { data } = await getTopRate();
+    setTopRatePosts([...data.results]);
   };
   topRateData();
+  const elements = topRatePosts.map(({ title, poster_path, id }) => (
+    <li key={id}>
+      <Card style={{ width: '18rem' }}>
+        <Card.Img
+          variant="top"
+          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+        />
+        <Card.Body>
+          <Card.Title>{title}</Card.Title>
+        </Card.Body>
+      </Card>
+    </li>
+  ));
 
-  return (
-    <ListGroup as="ol" numbered>
-      <ListGroup.Item
-        as="li"
-        className="d-flex justify-content-between align-items-start"
-      >
-        <div className="ms-2 me-auto">
-          <div className="fw-bold">Subheading</div>
-          Cras justo odio
-        </div>
-        <Badge bg="primary" pill>
-          14
-        </Badge>
-      </ListGroup.Item>
-    </ListGroup>
-  );
+  return <ul>{elements}</ul>;
 };
 
 export default Home;
