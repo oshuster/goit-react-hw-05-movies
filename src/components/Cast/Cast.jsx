@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getCredits } from 'components/api/movieService';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import CastList from './CastList';
 
 import styles from './cast.module.css';
@@ -19,7 +19,7 @@ const Cast = () => {
       }
     };
     credits();
-  }, []);
+  }, [id]);
 
   return (
     <ul className={styles.castList}>

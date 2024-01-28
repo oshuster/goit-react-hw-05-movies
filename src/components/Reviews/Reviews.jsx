@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReviewsList from './ReviewsList';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { Notify } from 'notiflix';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -18,7 +17,7 @@ const Reviews = () => {
       }
     };
     fetchReviews();
-  }, []);
+  }, [id]);
 
   return (
     <ListGroup as="ul">

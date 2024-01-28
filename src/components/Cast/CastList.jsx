@@ -1,7 +1,4 @@
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
-import styles from './cast.module.css';
 
 const CastList = ({ castData }) => {
   return castData.map(item => (
