@@ -4,31 +4,23 @@ import Header from './Header/Header';
 import Home from 'Pages/Home/Home';
 import Movies from 'Pages/Movies/Movies';
 import NotFound from 'Pages/NotFound/NotFound';
+import SingleMovie from './SingleMovie/SingleMovie';
+import Cast from './Cast/Cast';
+import Reviews from './Reviews/Reviews';
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/movies" element={<Movies />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies/:id" element={<SingleMovie />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
   );
 };
-
-//example routing
-// const App = () => {
-//   return (
-//     <Router>
-//       <Switch>
-//         <Route exact path="/" component={Home} />
-//         <Route exact path="/movies" component={Movies} />
-//         <Route exact path="/movies/:movieId" component={MovieDetails} />
-//         <Redirect from="/movies/:movieId/cast" to="/movies/:movieId" />
-//         <Redirect from="/movies/:movieId/reviews" to="/movies/:movieId" />
-//         <Redirect to="/" />
-//       </Switch>
-//     </Router>
-//   );
-// };
-
-// export default App;

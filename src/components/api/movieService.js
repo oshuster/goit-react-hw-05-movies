@@ -12,4 +12,16 @@ const getTopRate = () => {
   return instance.get(`/trending/all/week`);
 };
 
-export { getTopRate };
+const getSingleMovie = id => {
+  return instance.get(`movie/${id}?language=uk-Uk`);
+};
+
+const getCredits = id => {
+  return instance.get(`/movie/${id}/credits?language=uk-UK`);
+};
+
+const getReviews = id => {
+  return instance.get(`/movie/${id}/reviews?language=en-US&page=1`);
+};
+
+export { getTopRate, getSingleMovie, getCredits, getReviews };

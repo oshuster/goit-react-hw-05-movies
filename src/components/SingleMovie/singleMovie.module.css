@@ -1,0 +1,19 @@
+.img {
+  height: 100%;
+  max-width: 350px;
+  margin-right: 15px;
+}
+.cardWrapper {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.movieContainer {
+}
+
+.additionalsWrapper {
+  border: solid 1px darkgray;
+}
+.additionalsList {
+  list-style: none;
+}
