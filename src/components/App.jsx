@@ -2,14 +2,16 @@ import { Route, Routes } from 'react-router-dom';
 
 import Header from './Header/Header';
 import Home from 'Pages/Home/Home';
-import { Movies } from 'Pages/Movies/Movies';
+import Movies from 'Pages/Movies/Movies';
+import NotFound from 'Pages/NotFound/NotFound';
 
 export const App = () => {
   return (
-    <div>
-      <Header />
-      <Home />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/movies" element={<Movies />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 

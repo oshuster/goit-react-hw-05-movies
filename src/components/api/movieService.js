@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://api.themoviedb.org/3/movie',
+  baseURL: 'https://api.themoviedb.org/3',
   timeout: 3000,
   params: {
     api_key: 'e5ced2717af8a970eacd5955779d9ef2',
@@ -9,7 +9,7 @@ const instance = axios.create({
 });
 
 const getTopRate = () => {
-  return instance.get(`/top_rated`);
+  return instance.get(`/trending/all/week`);
 };
 
 export { getTopRate };

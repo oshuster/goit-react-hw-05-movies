@@ -1,0 +1,16 @@
+.wrapper {
+  max-width: 1240px;
+  list-style: none;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.img {
+  /* max-height: 350px; */
+  width: auto;
+}
