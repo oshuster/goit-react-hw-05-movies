@@ -4,12 +4,12 @@ import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 import { getSingleMovie } from 'components/api/movieService';
 import { useState, useEffect } from 'react';
 import { Notify } from 'notiflix';
+import Button from 'react-bootstrap/Button';
 
 const SingleMovie = () => {
   const [movieData, setMovieData] = useState({});
   const { id } = useParams();
   const location = useLocation();
-
   const from = location.state?.from || '/';
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const SingleMovie = () => {
         setMovieData(data);
       } catch (error) {
         console.log(error.message);
-        Notify.failure('Qui timide rogat docet negare');
+        Notify.failure(error.message);
       }
     };
     getDetails();
@@ -28,6 +28,9 @@ const SingleMovie = () => {
 
   return (
     <>
+      <Button as={Link} to={from} variant="secondary" className="mb-2">
+        Back
+      </Button>{' '}
       <div className={styles.cardWrapper}>
         <Image
           src={
@@ -53,9 +56,7 @@ const SingleMovie = () => {
         <h4>Additional information</h4>
         <ul className={styles.additionalsList}>
           <li>
-            <Link to="cast" state={{ from }}>
-              Cast
-            </Link>
+            <Link to="cast">Cast</Link>
           </li>
           <li>
             <Link to="reviews">Reviews</Link>
