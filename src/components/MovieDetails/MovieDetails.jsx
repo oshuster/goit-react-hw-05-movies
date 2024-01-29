@@ -1,5 +1,5 @@
 import Image from 'react-bootstrap/Image';
-import styles from './singleMovie.module.css';
+import styles from './movieDetails.module.css';
 import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 import { getSingleMovie } from 'components/api/movieService';
 import { useState, useEffect } from 'react';

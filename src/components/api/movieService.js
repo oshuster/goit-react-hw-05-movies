@@ -24,4 +24,10 @@ const getReviews = id => {
   return instance.get(`/movie/${id}/reviews?language=en-US&page=1`);
 };
 
-export { getTopRate, getSingleMovie, getCredits, getReviews };
+const searchMovies = query => {
+  return instance.get(
+    `/search/movie?query=${query}&include_adult=false&language=en-US&page=1`
+  );
+};
+
+export { getTopRate, getSingleMovie, getCredits, getReviews, searchMovies };
