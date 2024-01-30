@@ -9,8 +9,16 @@
 }
 
 .additionalsWrapper {
-  border: solid 1px darkgray;
+  padding: 10px;
+  border-style: solid none solid none;
+  border-color: darkgray;
+  border-width: 2px;
+  margin-bottom: 15px;
 }
 .additionalsList {
   list-style: none;
+}
+
+.wrapper {
+  padding: 0 15px 15px 15px;
 }

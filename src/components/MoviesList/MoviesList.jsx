@@ -5,7 +5,11 @@ export const MoviesList = ({ searchData }) => {
   const location = useLocation();
   return searchData.map(({ title, poster_path, id, name }) => (
     <li key={id}>
-      <Link to={`/movies/${id}`} state={location}>
+      <Link
+        to={`/movies/${id}`}
+        state={location}
+        style={{ textDecoration: 'none' }}
+      >
         <Card style={{ width: '18rem' }}>
           <Card.Img
             variant="top"

@@ -33,7 +33,7 @@ const SingleMovie = () => {
   }, [id]);
 
   return (
-    <>
+    <div className={styles.wrapper}>
       {isLoading && <Loader />}
       <Button as={Link} to={from} variant="secondary" className="mb-2">
         Back
@@ -63,15 +63,19 @@ const SingleMovie = () => {
         <h4>Additional information</h4>
         <ul className={styles.additionalsList}>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={from}>
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link to="reviews" state={from}>
+              Reviews
+            </Link>
           </li>
         </ul>
       </div>
       <Outlet />
-    </>
+    </div>
   );
 };
 
