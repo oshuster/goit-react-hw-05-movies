@@ -5,23 +5,28 @@ import { getSingleMovie } from 'components/api/movieService';
 import { useState, useEffect } from 'react';
 import { Notify } from 'notiflix';
 import Button from 'react-bootstrap/Button';
+import { Loader } from 'components/Loader/Loader';
 
 const SingleMovie = () => {
   const [movieData, setMovieData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
   const { id } = useParams();
   const location = useLocation();
-  console.log('from>>>', location);
   const from = location.state || '/';
 
   useEffect(() => {
     const getDetails = async () => {
       if (!id) return;
       try {
+        setIsLoading(true);
         const { data } = await getSingleMovie(id);
         setMovieData(data);
       } catch (error) {
         console.log(error.message);
         Notify.failure(error.message);
+      } finally {
+        setIsLoading(false);
       }
     };
     getDetails();
@@ -29,6 +34,7 @@ const SingleMovie = () => {
 
   return (
     <>
+      {isLoading && <Loader />}
       <Button as={Link} to={from} variant="secondary" className="mb-2">
         Back
       </Button>{' '}

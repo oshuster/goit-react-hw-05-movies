@@ -3,8 +3,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import formatDate from 'components/helpers/dataFormater';
 
 const ReviewsList = ({ reviews }) => {
-  console.log(reviews);
-
   return reviews?.map(({ author, content, updated_at }) => (
     <ListGroup.Item
       as="li"

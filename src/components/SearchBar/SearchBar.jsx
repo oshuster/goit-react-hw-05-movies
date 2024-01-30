@@ -1,3 +1,6 @@
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 import style from './searchBar.module.css';
 
 const Searchbar = ({ setSearchKey }) => {
@@ -6,21 +9,18 @@ const Searchbar = ({ setSearchKey }) => {
     setSearchKey({ query: e.target.query.value });
   };
   return (
-    <section className={style.Searchbar}>
-      <form className={style.SearchForm} onSubmit={handleSubmit}>
-        <button type="submit" className={style.SearchForm_button}>
-          <span className={style.SearchForm_button_label}>Search</span>
-        </button>
-        <input
-          className={style.SearchForm_input}
-          type="text"
-          autoComplete="off"
-          autoFocus
-          placeholder="Search"
-          name="query"
-        />
-      </form>
-    </section>
+    <Form className={`d-flex ${style.container}`} onSubmit={handleSubmit}>
+      <Form.Control
+        type="search"
+        placeholder="Search"
+        className="me-2"
+        aria-label="Search"
+        name="query"
+      />
+      <Button type="submit" variant="outline-success">
+        Search
+      </Button>
+    </Form>
   );
 };
 
