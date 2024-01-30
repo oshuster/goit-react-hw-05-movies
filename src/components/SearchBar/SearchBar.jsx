@@ -1,9 +1,13 @@
 import style from './searchBar.module.css';
 
-const Searchbar = sendSearchKey => {
+const Searchbar = ({ setSearchKey }) => {
+  const handleSubmit = e => {
+    e.preventDefault();
+    setSearchKey({ query: e.target.query.value });
+  };
   return (
     <section className={style.Searchbar}>
-      <form className={style.SearchForm} onSubmit={e => e.preventDefault()}>
+      <form className={style.SearchForm} onSubmit={handleSubmit}>
         <button type="submit" className={style.SearchForm_button}>
           <span className={style.SearchForm_button_label}>Search</span>
         </button>
@@ -14,7 +18,6 @@ const Searchbar = sendSearchKey => {
           autoFocus
           placeholder="Search"
           name="query"
-          required
         />
       </form>
     </section>

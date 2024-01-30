@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <ul className={styles.wrapper}>
-      <MoviesList topRatePosts={topRatePosts} />
+      <MoviesList searchData={topRatePosts} />
     </ul>
   );
 };

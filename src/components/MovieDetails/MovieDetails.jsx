@@ -10,7 +10,8 @@ const SingleMovie = () => {
   const [movieData, setMovieData] = useState({});
   const { id } = useParams();
   const location = useLocation();
-  const from = location.state?.from || '/';
+  console.log('from>>>', location);
+  const from = location.state || '/';
 
   useEffect(() => {
     const getDetails = async () => {
